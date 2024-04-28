@@ -1,11 +1,39 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../Compnents/Firebase/firebase.config';
+import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from 'firebase/auth/cordova';
 export const AuthContext = createContext(null);
 
 const Provider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
+
+
+    //  SocialProviders
+    const goggleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const googleLogin = () => {
+      setLoading(true);
+      return signInWithPopup(auth, goggleProvider); };
+
+      const githubLogin = () => {
+        setLoading(true);
+        return signInWithPopup(auth, githubProvider);
+      };
+
+
+
+
+
+
+
+
+
+
+
+    // Email,passWord Log In
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -14,7 +42,7 @@ const Provider = ({children}) => {
 
       const logIn=(email,password)=>{
         setLoading(true);
-        return signInWithEmailAndPassword(email,password);
+        return signInWithEmailAndPassword(auth,email,password);
       };
       const updateUserProfile = (name, image) => {
         return updateProfile(auth.currentUser, {
@@ -22,22 +50,24 @@ const Provider = ({children}) => {
             photoURL: image
           })};
       const logOut=()=>{
-        setUser(null);
-        signOut(auth);
-        
+      setUser(null);
+      return  signOut(auth);
+       
 
       }
       useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+     onAuthStateChanged(auth, (user) => {
           if (user) {
             setUser(user);
             setLoading(false);
           }
           
         });
-        return () => unsubscribe();
+       
       }, []);
     const allInfo = {
+      githubLogin,
+      googleLogin,
         updateUserProfile,
            loading,
           createUser,

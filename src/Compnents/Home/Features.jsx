@@ -5,7 +5,7 @@ const Features = () => {
     return (
         <section className="m-4 md:m-8 dark:bg-gray-100 dark:text-gray-800">
         <div className="container mx-auto p-4 my-6 space-y-2 text-center">
-        <Fade delay={1e3} cascade damping={1e-1}>
+        <Fade  cascade damping={1e-1}>
         <h2 className="text-5xl font-bold text-teal-600"> <Typewriter  words={['The Proccess For Sucess']} loop={15} typeSpeed={60} deleteSpeed={50} delaySpeed={1000} /></h2>
       </Fade>
             <p className="text-gray-400">Discover a world where imagination meets craftsmanship. Explore our curated collection of unique, handmade treasures for your creative journey.</p>

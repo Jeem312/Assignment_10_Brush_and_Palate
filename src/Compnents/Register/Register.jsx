@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm} from "react-hook-form";
 import { AuthContext } from '../../Provider/Provider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
-
+  const [registerError , setRegisterError] =useState('');
 const {  createUser,updateUserProfile} =useContext(AuthContext);
 
 
@@ -16,9 +18,16 @@ const {  createUser,updateUserProfile} =useContext(AuthContext);
       const onSubmit = (data) => {
         
         const {email,password,Name, image} = data;
+      if (!/(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(password)) {
+       toast.error("Password must have at least 1 uppercase letter, 1 lowercase letter, and be at least 6 characters long");
+          return;
+        }
+        
+        
         createUser(email,password)
         .then(result=>{
           console.log(result.user);
+          toast('Register Successfully');
           updateUserProfile(Name, image);
           reset()
           
@@ -94,6 +103,7 @@ const {  createUser,updateUserProfile} =useContext(AuthContext);
                   {errors.password && <span className='text-red-400'>This field is required</span>}
                
               </div>
+          
               <div className="form-control mt-6 p-0">
                 <button className="border border-teal-400 rounded-lg p-3 bg-teal-50">Register</button>
               </div>
@@ -106,6 +116,7 @@ const {  createUser,updateUserProfile} =useContext(AuthContext);
               
             </div>
           </form>
+          <ToastContainer />
         </div>
       </div>
     </>
