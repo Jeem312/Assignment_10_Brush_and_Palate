@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 
 const AddCraft = () => {
 	const {
+		reset,
 		register,
 		formState: { errors },
 		handleSubmit,} = useForm()
@@ -15,7 +16,7 @@ const AddCraft = () => {
 
 		const user = {name,Photo_Url,Email,Item_name,subcategory_Name,description,processing_time,customization,rating,price,stockStatus,}
 
-		fetch('http://localhost:5000/addedCraft',{
+		fetch('http://localhost:5000/addCraft',{
       method:'POST',
       headers:{
         'content-type':'application/json'
@@ -26,6 +27,8 @@ const AddCraft = () => {
     .then(res => res.json())
     .then(data =>{
       console.log(data);
+ reset();
+        
       
       
 		
@@ -33,9 +36,9 @@ const AddCraft = () => {
 
    }
     return (
-        <section className="p-6  dark:text-gray-900 bg-teal-100 border border-b-teal-400">
+        <section className="p-6  dark:text-gray-900 bg-teal-100 border border-b-teal-400" style={{backgroundImage: `url(https://i.postimg.cc/054C3y4S/top-view-composition-with-art-concept.jpg)`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',borderRadius:'10px'}}>
             <div className="space-y-2 flex justify-center items-center">
-				<h1 className="font-semibold text-2xl text-teal-700">Add Art & Craft Item</h1>
+				<h1 className="font-semibold text-2xl text-teal-400">Add Art & Craft Item</h1>
 				
 			</div>
 	<form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="container flex flex-col mx-auto lg:justify-center lg:items-center lg:ml-36  space-y-12">
@@ -99,7 +102,7 @@ const AddCraft = () => {
 					<textarea id="bio" placeholder="" name='description' className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"    {...register("description", { required: true })} />
                    {errors.description && <span className='text-red-400'>This field is required</span>}
 				</div>
-                <div className=" col-span-full bg-teal-500 border  rounded-lg">
+                <div className=" col-span-full bg-teal-400 border  rounded-lg">
 					
 					<input type="submit" value="Add Iteam" className="w-full p-3 rounded-lg  "   />
 				</div>

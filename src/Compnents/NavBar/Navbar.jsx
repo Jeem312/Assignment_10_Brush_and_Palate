@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/Provider';
 import { toast } from 'react-toastify';
-
+import { Tooltip } from 'react-tooltip'
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
 console.log(user);
@@ -92,25 +92,31 @@ console.log(user);
           </svg>
         </label>
         {
-                        user? <div className="dropdown dropdown-end">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src={user?.photoURL || "https://i.postimg.cc/q7V3Q9ZV/user-3177440.png" } />
-                                </div>
-                            </label>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                <li>
-                                    <button className="btn btn-sm  btn-ghost">{user?.displayName||'user name not found'}</button>
+                        user?  <div className="dropdown dropdown-end inline-flex">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                          <div className="w-10 rounded-full">
+                          <img src={user?.photoURL || "https://i.postimg.cc/q7V3Q9ZV/user-3177440.png" } />
+                          </div>
+                        </div>
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                          <li>
+                            <a className="justify-between">
+                            {user?.displayName||'user name not found'}
 
-                                </li>
-                                <li>
-                                    <button
+                             
+                            </a>
+                          </li>
+                          
+                        </ul>
+                        <div className='lg:mt-2 border border-teal-400 btn btn-sm btn-ghost'>
+                                     <button
                                         onClick={logOut}
                                         className="btn btn-sm  btn-ghost">Logout</button>
 
-                                </li>
-                            </ul>
                         </div>
+                      </div>
+                        
+                       
                             :
                             <div>
                             <Link to='/register'> <button className=' px-5 py-2 rounded-2xl bg-teal-400 text-teal-50 '>Register</button></Link>
