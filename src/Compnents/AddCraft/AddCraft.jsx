@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { useForm} from "react-hook-form"
+import Swal from 'sweetalert2';
 
 const AddCraft = () => {
 	const {
@@ -7,7 +9,29 @@ const AddCraft = () => {
 		formState: { errors },
 		handleSubmit,} = useForm()
 
-      const onSubmit = (data) => {console.log(data);}
+      const onSubmit = (data) => {
+		const {name,Photo_Url,Email,Item_name,subcategory_Name,description,processing_time,customization,rating,price,stockStatus,}=data;
+		
+
+		const user = {name,Photo_Url,Email,Item_name,subcategory_Name,description,processing_time,customization,rating,price,stockStatus,}
+
+		fetch('http://localhost:5000/addedCraft',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(user)
+     
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log(data);
+      
+      
+		
+    }) 
+
+   }
     return (
         <section className="p-6  dark:text-gray-900 bg-teal-100 border border-b-teal-400">
             <div className="space-y-2 flex justify-center items-center">
