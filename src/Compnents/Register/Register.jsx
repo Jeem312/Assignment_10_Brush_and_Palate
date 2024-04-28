@@ -1,10 +1,114 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { useForm} from "react-hook-form";
+import { AuthContext } from '../../Provider/Provider';
 const Register = () => {
+
+const {  createUser,updateUserProfile} =useContext(AuthContext);
+
+
+    const {
+		register,
+    reset,
+		formState: { errors },
+		handleSubmit,} = useForm()
+
+      const onSubmit = (data) => {
+        
+        const {email,password,Name, image} = data;
+        createUser(email,password)
+        .then(result=>{
+          console.log(result.user);
+          updateUserProfile(Name, image);
+          reset()
+          
+        })
+        .catch((error) => {
+       
+          console.log(error.message);
+          
+        });
+      
+      }
     return (
-        <div>
-            
+        <>
+      <div className="hero min-h-screen bg-teal-100 ">
+        <div className="hero-content flex-col ">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold text-teal-900">Register now!</h1>
+           
+          </div>
+          <form    onSubmit={handleSubmit(onSubmit)}
+           
+            className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
+          >
+            <div className="card-body">
+              <div className="form-control">
+                <label className="label text-teal-800">
+                  <span className="label-text">Full Name</span>
+                </label>
+                <input name='name'
+                  type="text"
+                  placeholder="Full name"
+                  className="input input-bordered"
+                 
+                  {...register("Name", { required: true })} />
+                  {errors.Name && <span className='text-red-400'>This field is required</span>}
+               
+              </div>
+              <div className="form-control">
+                <label className="label text-teal-800">
+                  <span className="label-text">Email</span>
+                </label>
+                <input name='email'
+                  type="text"
+                  placeholder="email"
+                  className="input input-bordered"
+                 
+                  {...register("email", { required: true })} />
+                  {errors.email && <span className='text-red-400'>This field is required</span>}
+               
+              </div>
+              <div className="form-control ">
+                <label className="label text-teal-800">
+                  <span className="label-text">Image Url</span>
+                </label>
+                <input name='image'
+                  type="text"
+                  placeholder="image url"
+                  className="input input-bordered"
+                  {...register("image")} />
+                 
+                 
+              </div>
+              <div className="form-contro ">
+                <label className="label ">
+                  <span className="lebel-text ">Password</span>
+                </label>
+                <input name='password'
+                  type="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                 
+                  {...register("password", { required: true })} />
+                  {errors.password && <span className='text-red-400'>This field is required</span>}
+               
+              </div>
+              <div className="form-control mt-6 p-0">
+                <button className="border border-teal-400 rounded-lg p-3 bg-teal-50">Register</button>
+              </div>
+              <label className="label">
+                Have an account?{" "}
+                <Link to="/signin" className="label-text-alt link link-hover">
+                  Please Login
+                </Link>
+              </label>
+              
+            </div>
+          </form>
         </div>
+      </div>
+    </>
     );
 };
 

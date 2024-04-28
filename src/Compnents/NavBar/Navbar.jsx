@@ -1,8 +1,13 @@
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/Provider';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
+console.log(user);
+  
     const [theme, setTheme] = useState('light');
     useEffect(() => {
         localStorage.setItem('theme', theme)
@@ -23,9 +28,9 @@ const Navbar = () => {
 
     const links = <>
     <li className="font-bold text-teal-900 "> <NavLink to="/">Home</NavLink></li>
-    <li className="font-bold text-teal-900"> <NavLink to="/login">All Art & craft Items</NavLink> </li>
-    <li className="font-bold text-teal-900"> <NavLink to="/login">My Art&Craft List</NavLink> </li>
-    <li className="font-bold text-teal-900" > <NavLink to="/agents">Add Craft Item</NavLink> </li>
+    <li className="font-bold text-teal-900"> <NavLink to="/allArtCraft">All Art & craft Items</NavLink> </li>
+    <li className="font-bold text-teal-900"> <NavLink to="/myArtCraft">My Art&Craft List</NavLink> </li>
+    <li className="font-bold text-teal-900" > <NavLink to="/addCraft">Add Craft Item</NavLink> </li>
     
     </>
     return (
@@ -86,10 +91,32 @@ const Navbar = () => {
             <path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'></path>
           </svg>
         </label>
-   <div>
-   <Link to='/login'> <button className=' px-5 py-2 rounded-2xl bg-teal-400 text-teal-50 '>Register</button></Link>
-   <Link to='/register'> <button className=' px-5 py-2 rounded-2xl bg-teal-500 text-teal-50'>LogIn</button></Link>
-   </div>
+        {
+                        user? <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL || "https://i.postimg.cc/q7V3Q9ZV/user-3177440.png" } />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <button className="btn btn-sm  btn-ghost">{user?.displayName||'user name not found'}</button>
+
+                                </li>
+                                <li>
+                                    <button
+                                        onClick={logOut}
+                                        className="btn btn-sm  btn-ghost">Logout</button>
+
+                                </li>
+                            </ul>
+                        </div>
+                            :
+                            <div>
+                            <Link to='/register'> <button className=' px-5 py-2 rounded-2xl bg-teal-400 text-teal-50 '>Register</button></Link>
+                            <Link to='/signin'> <button className=' px-5 py-2 rounded-2xl bg-teal-500 text-teal-50'>LogIn</button></Link>
+                            </div>
+                    }
 </div>
 </div>
     </div>

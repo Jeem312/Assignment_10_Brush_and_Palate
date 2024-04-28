@@ -9,11 +9,13 @@ import {
 import Root from './Root/Root.jsx';
 import Error from './Error/Error.jsx';
 import Home from './Compnents/Home/Home.jsx';
-import LogIn from './Compnents/LogIn/LogIn.jsx';
+
 import Register from './Compnents/Register/Register.jsx';
 import AddCraft from './Compnents/AddCraft/AddCraft.jsx';
 import MyArtCraft from './Compnents/MyArtCraft/MyArtCraft.jsx';
 import AllArtCraft from './Compnents/AllArtCraft/AllArtCraft.jsx';
+import SignIn from './SignIn/SignIn.jsx';
+import Provider from './Provider/Provider.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
        element:<Home></Home>
       },
       {
-       path:'/addCraft ' ,
+       path:'/addCraft' ,
        element:<AddCraft></AddCraft>
       },
       {
@@ -40,11 +42,17 @@ const router = createBrowserRouter([
        path:'/register' ,
        element:<Register></Register>
       },
+      {
+       path:'/signin' ,
+       element:<SignIn></SignIn>
+      },
     ]
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+     <Provider>
      <RouterProvider router={router} />
+     </Provider>
   </React.StrictMode>,
 )
