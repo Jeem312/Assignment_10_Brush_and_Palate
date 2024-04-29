@@ -8,6 +8,7 @@ const AllArtCraft = () => {
   
     return (
         <div>
+            
             {
                 craftInfos.map(craftInfo=><CraftTable key={craftInfo._id} craftInfo={craftInfo}></CraftTable>)
             }

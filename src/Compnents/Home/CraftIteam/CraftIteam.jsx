@@ -1,5 +1,5 @@
 
-
+import 'animate.css'
 const CraftIteam = ({craftCard}) => {
     console.log(craftCard);
       const  {
@@ -7,7 +7,7 @@ const CraftIteam = ({craftCard}) => {
         Item_name,price,rating,stockStatus,} = craftCard
     
     return (
-      <div className="max-w-xs p-6 border border-teal-400 my-6 ml-6 md:ml-20 rounded-md shadow-md  dark:bg-gray-50 dark:text-gray-900">
+      <div className="animate__animated animate__backInLeft animate__slower	3s animate__delay-2s	2s max-w-xs p-6 border border-teal-400 my-6 ml-6 md:ml-20 rounded-md shadow-md  dark:bg-gray-50 dark:text-gray-900">
       <img src={Photo_Url} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
     
 

@@ -30,7 +30,10 @@ const Home = () => {
          <div className='mb-12 md:-translate-y-8'>
         <Stats></Stats>
       </div>
+      <h1 className='flex flex-col justify-center items-center text-4xl text-teal-600 my-12 font-extrabold'>Our Art & Craft Iteams</h1>
+      <p className='text-center text-gray-400'>Indulge your creative spirit with our curated selection of artisanal supplies and DIY essentials. From vibrant paints to intricate tools, discover the perfect materials to bring your artistic visions to life. Unleash your imagination today!</p>
           <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3' style={{backgroundImage: `url(https://i.postimg.cc/054C3y4S/top-view-composition-with-art-concept.jpg)`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',borderRadius:'10px'}}>
+         
             {
               craftCards.map(craftCard =><CraftIteam key={craftCard._id} craftCard={craftCard}></CraftIteam>)
              }
