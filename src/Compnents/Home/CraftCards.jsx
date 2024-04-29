@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CraftCards = () => {
+const CraftCards = ({craftInfo}) => {
     return (
         <div>
             

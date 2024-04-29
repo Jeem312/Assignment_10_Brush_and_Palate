@@ -8,8 +8,8 @@ import GetInTouch from './Banner/GetInTouch/GetInTouch';
 import CraftCards from './CraftCards';
 import { useLoaderData } from 'react-router-dom';
 const Home = () => {
-  const craftInfo = useLoaderData();
-  console.log(craftInfo);
+  const craftInfos = useLoaderData();
+  console.log(craftInfos);
     return (
         <div>
 
@@ -29,7 +29,9 @@ const Home = () => {
         <Stats></Stats>
       </div>
             <div>
-              <CraftCards></CraftCards>
+              {
+                craftInfos.map(craftInfo=><CraftCards key={craftInfo._id} craftInfo={craftInfo}></CraftCards>)
+              }
             </div>
 
             <div>
