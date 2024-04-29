@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { Tooltip } from 'react-tooltip'
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
-console.log(user);
+
   
     const [theme, setTheme] = useState('light');
     useEffect(() => {

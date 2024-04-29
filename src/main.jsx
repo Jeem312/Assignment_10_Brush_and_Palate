@@ -16,7 +16,7 @@ import MyArtCraft from './Compnents/MyArtCraft/MyArtCraft.jsx';
 import AllArtCraft from './Compnents/AllArtCraft/AllArtCraft.jsx';
 import SignIn from './SignIn/SignIn.jsx';
 import Provider from './Provider/Provider.jsx';
-import CraftCards from './Compnents/Home/CraftCards.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,7 +38,8 @@ const router = createBrowserRouter([
       },
       {
        path:'/allArtCraft' ,
-       element:<AllArtCraft></AllArtCraft>
+       element:<AllArtCraft></AllArtCraft>,
+       loader:()=>fetch('http://localhost:5000/addCraft')
       },
       {
        path:'/register' ,

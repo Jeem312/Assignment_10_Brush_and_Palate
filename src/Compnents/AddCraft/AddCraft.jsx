@@ -87,7 +87,7 @@ const AddCraft = () => {
 				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label htmlFor="zip" className="text-sm">Price</label>
-					<input id="zip" name='price' type="text" placeholder="" className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"    {...register("Photo-url", { required: true })} />
+					<input id="zip" name='price' type="text" placeholder="" className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"    {...register("price", { required: true })} />
                    {errors.price && <span className='text-red-400'>This field is required</span>}
 				</div>
 				<div className="col-span-full sm:col-span-2">

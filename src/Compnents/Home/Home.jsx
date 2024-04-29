@@ -1,15 +1,17 @@
-import React from 'react';
+
 import { Typewriter } from 'react-simple-typewriter'
 import Banner from './Banner/Banner';
 import Animation from './Annimation/Animation';
 import Stats from './Stats';
 import Features from './Features';
 import GetInTouch from './Banner/GetInTouch/GetInTouch';
-import CraftCards from './CraftCards';
+
 import { useLoaderData } from 'react-router-dom';
+
+import CraftIteam from './CraftIteam/CraftIteam';
 const Home = () => {
-  const craftInfos = useLoaderData();
-  console.log(craftInfos);
+  const craftCards = useLoaderData();
+ 
     return (
         <div>
 
@@ -28,11 +30,11 @@ const Home = () => {
          <div className='mb-12 md:-translate-y-8'>
         <Stats></Stats>
       </div>
-            <div>
-              {
-                craftInfos.map(craftInfo=><CraftCards key={craftInfo._id} craftInfo={craftInfo}></CraftCards>)
-              }
-            </div>
+          <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3' style={{backgroundImage: `url(https://i.postimg.cc/054C3y4S/top-view-composition-with-art-concept.jpg)`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',borderRadius:'10px'}}>
+            {
+              craftCards.map(craftCard =><CraftIteam key={craftCard._id} craftCard={craftCard}></CraftIteam>)
+             }
+    </div>
 
             <div>
               <Features></Features>
