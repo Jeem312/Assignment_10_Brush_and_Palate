@@ -23,11 +23,19 @@ const AddCraft = () => {
       },
       body:JSON.stringify(user)
      
-    })
-    .then(res => res.json())
-    .then(data =>{
-      console.log(data);
- reset();
+      })
+     .then(res => res.json())
+     .then(data =>{
+       console.log(data);
+  if(data.insertedId){
+        Swal.fire({
+          title: 'success',
+          text: 'Do you want to continue',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+      }
+       reset();
         
       
       

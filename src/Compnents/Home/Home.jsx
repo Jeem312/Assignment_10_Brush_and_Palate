@@ -5,7 +5,11 @@ import Animation from './Annimation/Animation';
 import Stats from './Stats';
 import Features from './Features';
 import GetInTouch from './Banner/GetInTouch/GetInTouch';
+import CraftCards from './CraftCards';
+import { useLoaderData } from 'react-router-dom';
 const Home = () => {
+  const craftInfo = useLoaderData();
+  console.log(craftInfo);
     return (
         <div>
 
@@ -24,6 +28,9 @@ const Home = () => {
          <div className='mb-12 md:-translate-y-8'>
         <Stats></Stats>
       </div>
+            <div>
+              <CraftCards></CraftCards>
+            </div>
 
             <div>
               <Features></Features>

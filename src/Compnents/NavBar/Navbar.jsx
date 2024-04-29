@@ -94,11 +94,12 @@ console.log(user);
         {
                         user?  <div className="dropdown dropdown-end inline-flex">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                          <div className="w-10 rounded-full">
+                        <div className="w-10 rounded-full">
+                        <div>
                           <img src={user?.photoURL || "https://i.postimg.cc/q7V3Q9ZV/user-3177440.png" } />
                           </div>
                         </div>
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="mt-20 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                           <li>
                             <a className="justify-between">
                             {user?.displayName||'user name not found'}
@@ -106,12 +107,13 @@ console.log(user);
                              
                             </a>
                           </li>
-                          
+          
                         </ul>
-                        <div className='lg:mt-2 border border-teal-400 btn btn-sm btn-ghost'>
+                        </div>
+                        <div className='mt-2 border border-teal-400 btn btn-sm btn-ghost'>
                                      <button
                                         onClick={logOut}
-                                        className="btn btn-sm  btn-ghost">Logout</button>
+                                        className="btn btn-sm   btn-ghost">Logout</button>
 
                         </div>
                       </div>
