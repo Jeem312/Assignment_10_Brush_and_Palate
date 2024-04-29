@@ -4,7 +4,7 @@ const CraftTable = ({craftInfo}) => {
     console.log(craftInfo);
     const {name,Photo_Url,Item_name,price,rating,stockStatus,customization,subcategory_Name} = craftInfo;
     return (
-        <div  style={{backgroundImage: `url(https://i.postimg.cc/054C3y4S/top-view-composition-with-art-concept.jpg)`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',borderRadius:'10px'}}>
+        <div  >
         <div className="overflow-x-auto bg-base-100">
  <table className="table">
    {/* head */}
