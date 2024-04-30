@@ -82,7 +82,7 @@ Rating:
 
 </div>
     <div className="card-actions justify-between">
-    <Link to={`/update/:${info?._id}`}>  <button className="btn bg-teal-400 text-teal-900 ">Update</button></Link>
+    <Link to={`/updateIteam/${info?._id}`}>  <button className="btn bg-teal-400 text-teal-900 ">Update</button></Link>
       <button onClick={()=>handleDelete(info?._id)} className="btn btn-error">Delete</button>
     </div>
   </div>

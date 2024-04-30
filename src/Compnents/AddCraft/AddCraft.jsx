@@ -16,7 +16,7 @@ const AddCraft = () => {
 
 		const user = {name,Photo_Url,Email,Item_name,subcategory_Name,description,processing_time,customization,rating,price,stockStatus,}
 
-		fetch('http://localhost:5000/addCraft',{
+		fetch('http://localhost:5000/CraftIteam',{
       method:'POST',
       headers:{
         'content-type':'application/json'
@@ -30,7 +30,7 @@ const AddCraft = () => {
   if(data.insertedId){
         Swal.fire({
           title: 'success',
-          text: 'Do you want to continue',
+          text: 'Your Iteam Added Succesfully',
           icon: 'success',
           confirmButtonText: 'Cool'
         })
@@ -72,7 +72,7 @@ const AddCraft = () => {
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label htmlFor="firstname" className="text-sm">Item_name</label>
-					<input id="firstname" name='iteam_name' type="text" placeholder="First name" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"    {...register("Item_name", { required: true })} />
+					<input id="firstname" name='iteam_name' type="text" placeholder="Item_name" className="w-full p-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"    {...register("Item_name", { required: true })} />
                    {errors.Item_name && <span className='text-red-400'>This field is required</span>}
 				</div>
 				<div className="col-span-full sm:col-span-2">

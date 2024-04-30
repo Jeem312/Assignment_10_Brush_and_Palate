@@ -17,7 +17,8 @@ import AllArtCraft from './Compnents/AllArtCraft/AllArtCraft.jsx';
 import SignIn from './SignIn/SignIn.jsx';
 import Provider from './Provider/Provider.jsx';
 import Details from './Compnents/Details/Details.jsx';
-import Update from './Compnents/Update/Update.jsx';
+import UpdateIteam from './Compnents/UpdateIteam/UpdateIteam.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -45,8 +46,9 @@ const router = createBrowserRouter([
        element:<Details></Details>
       },
       {
-       path:'/update/:id' ,
-       element:<Update></Update>
+       path:'/updateIteam/:id' ,
+       element:<UpdateIteam></UpdateIteam>,
+       loader:({params})=>fetch(`http://localhost:5000/CraftIteam/${params.id}`)
       },
       {
        path:'/allArtCraft' ,
