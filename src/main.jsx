@@ -18,6 +18,8 @@ import SignIn from './SignIn/SignIn.jsx';
 import Provider from './Provider/Provider.jsx';
 import Details from './Compnents/Details/Details.jsx';
 import UpdateIteam from './Compnents/UpdateIteam/UpdateIteam.jsx';
+import PrivateRoute from './Compnents/PrivateRoute/PrivateRoute.jsx';
+import ProtectedRoute from './Compnents/ProtectedRoute/ProtectedRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -35,15 +37,21 @@ const router = createBrowserRouter([
       },
       {
        path:'/addCraft' ,
-       element:<AddCraft></AddCraft>
+       element:<ProtectedRoute>
+        <AddCraft></AddCraft>
+       </ProtectedRoute>
       },
       {
        path:'/myArtCraft' ,
-       element:<MyArtCraft></MyArtCraft>
+       element:<ProtectedRoute>
+        <MyArtCraft></MyArtCraft>
+       </ProtectedRoute>
       },
       {
        path:'/details/:id' ,
-       element:<Details></Details>
+      element: <PrivateRoute>
+        <Details></Details>
+      </PrivateRoute>
       },
       {
        path:'/updateIteam/:id' ,
