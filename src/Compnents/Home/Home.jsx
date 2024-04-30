@@ -7,7 +7,7 @@ import Features from './Features';
 import GetInTouch from './Banner/GetInTouch/GetInTouch';
 import { useLoaderData } from 'react-router-dom';
 import CraftCards from './CraftCards/CraftCards';
-
+import { RotatingLines } from 'react-loader-spinner'
 
 
 
@@ -16,7 +16,7 @@ const craftInfos = useLoaderData()
 
     return (
         <div>
-
+       
 
           {/* banner section */}
         <div className='container mx-auto  md:grid md:grid-cols-2 gap-6 '>
@@ -31,6 +31,22 @@ const craftInfos = useLoaderData()
 
          <div className='mb-12 md:-translate-y-8'>
         <Stats></Stats>
+          <div>
+          render(<RotatingLines
+  visible={true}
+  height="96"
+  width="96"
+  color="grey"
+  strokeWidth="5"
+  animationDuration="0.75"
+  ariaLabel="rotating-lines-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />)
+          </div>
+
+
+
       </div>
       <h1 className='flex flex-col justify-center items-center text-4xl text-teal-600 my-6 font-extrabold'>Our Art & Craft Iteams</h1>
       <p className='text-center my-4 text-gray-400'>Indulge your creative spirit with our curated selection of artisanal supplies and DIY essentials. From vibrant paints to intricate tools, discover the perfect materials to bring your artistic visions to life. Unleash your imagination today!</p>

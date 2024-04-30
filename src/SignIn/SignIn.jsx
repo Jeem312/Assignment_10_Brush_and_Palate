@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm} from "react-hook-form";
 import { AuthContext } from '../Provider/Provider';
+import { toast } from 'react-toastify';
 
 const SignIn = () => {
    
@@ -44,6 +45,7 @@ const SignIn = () => {
             socialProvider()
             .then((result) => {
               if (result.user) {
+                toast('LogIn Successfully');
                 navigate(from);
               }
           })

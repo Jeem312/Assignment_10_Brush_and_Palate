@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm} from "react-hook-form";
 import { AuthContext } from '../../Provider/Provider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,6 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
   const [registerError , setRegisterError] =useState('');
 const {  createUser,updateUserProfile} =useContext(AuthContext);
+
+const navigate = useNavigate();
+  const from = "/";
 
 
     const {
@@ -27,16 +30,21 @@ const {  createUser,updateUserProfile} =useContext(AuthContext);
         createUser(email,password)
         .then(result=>{
           console.log(result.user);
-          toast('Register Successfully');
-          updateUserProfile(Name, image);
-          reset()
+
+          if (result.user) {
+            toast('Register Successfully');
+           
+            updateUserProfile(Name, image)
+            .then(() => {
+              navigate(from);
+              
+});
+          }
+      })
           
-        })
-        .catch((error) => {
-       
-          console.log(error.message);
           
-        });
+          
+         
       
       }
     return (
