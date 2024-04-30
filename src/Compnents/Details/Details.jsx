@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 const Details = () => {
     const {id} = useParams();
-    const [info,setInfo] = useState()
+    const [info,setInfo] = useState([]);
    useEffect(()=>{
     fetch(`http://localhost:5000/craftDetails/${id}`)
     .then(res=>res.json())

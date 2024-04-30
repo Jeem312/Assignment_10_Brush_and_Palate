@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import CraftTable from './CraftTable';
 
 
@@ -7,14 +7,13 @@ import CraftTable from './CraftTable';
 const AllArtCraft = () => {
     
     const craftInfos =useLoaderData();
-
+    console.log(craftInfos)
   
     return (
         <div>
-              {
-                craftInfos.slice(6,100).map(craftInfo=><CraftTable key={craftInfo._id} craftInfo={craftInfo}></CraftTable>)
+             {
+                craftInfos.slice(10,100).map(craftInfo=><CraftTable key={craftInfo._id} craftInfo={craftInfo}></CraftTable>)
              }
-
            
         </div>
     );

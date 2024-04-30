@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CraftTable = ({craftInfo}) => {
-    console.log(craftInfo);
+   
     const {_id,name,Photo_Url,Item_name,price,rating,stockStatus,customization,subcategory_Name} = craftInfo;
     return (
         <div  >
@@ -13,9 +13,13 @@ const CraftTable = ({craftInfo}) => {
      <tr>
        <th></th>
        <th>User Name</th>
+       <th></th>
        <th>Item Name</th>
+       <th></th>
        <th>SubCategory</th>
+       <th></th>
        <th>Customization</th>
+       <th></th>
        <th>stockStatus</th>
        <th>View Details</th>
      </tr>
@@ -25,9 +29,13 @@ const CraftTable = ({craftInfo}) => {
       <tr>
        <th></th>
        <td>{name}</td>
+       <td></td>
        <td>{Item_name}</td>
+       <td></td>
        <td>{subcategory_Name}</td>
+       <td></td>
        <td>{stockStatus}</td>
+       <td></td>
        <td>{customization}</td>
        <td><Link to={`/details/${_id}`}><button className='btn btn-sm bg-base-200'>Details</button></Link></td>  
      </tr>

@@ -8,6 +8,7 @@ import GetInTouch from './Banner/GetInTouch/GetInTouch';
 import { useLoaderData } from 'react-router-dom';
 import CraftCards from './CraftCards/CraftCards';
 import { RotatingLines } from 'react-loader-spinner'
+import CategoryCards from './CategoryCards/CategoryCards';
 
 
 
@@ -51,10 +52,16 @@ const craftInfos = useLoaderData()
          
            
     </div>
-
+     <div>
+       <h1 className='flex flex-col justify-center items-center text-4xl text-teal-600 my-6 font-extrabold'>All Art and craft Collection</h1>
+     <CategoryCards></CategoryCards>
+     
+     </div>
             <div>
               <Features></Features>
             </div>
+                    
+
              <div className='mb-6'>
               <GetInTouch></GetInTouch>
              </div>

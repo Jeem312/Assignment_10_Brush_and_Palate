@@ -20,6 +20,9 @@ import Details from './Compnents/Details/Details.jsx';
 import UpdateIteam from './Compnents/UpdateIteam/UpdateIteam.jsx';
 import PrivateRoute from './Compnents/PrivateRoute/PrivateRoute.jsx';
 import ProtectedRoute from './Compnents/ProtectedRoute/ProtectedRoute.jsx';
+import CategoryCards from './Compnents/Home/CategoryCards/CategoryCards.jsx';
+import SubCategoryCards from './Compnents/Home/SubCategoryCards/SubCategoryCards.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -53,6 +56,7 @@ const router = createBrowserRouter([
         <Details></Details>
       </PrivateRoute>
       },
+     
       {
        path:'/updateIteam/:id' ,
        element:<UpdateIteam></UpdateIteam>,
@@ -64,6 +68,19 @@ const router = createBrowserRouter([
        loader:()=>fetch('http://localhost:5000/CraftIteam')
       
       },
+  
+       {
+        path:'/categoryCards',
+        element:<CategoryCards></CategoryCards>,
+       
+       },
+  
+       {
+        path:'/categoryCards/:id',
+        element:<SubCategoryCards></SubCategoryCards>,
+       
+       
+       },
       {
        path:'/register' ,
        element:<Register></Register>
