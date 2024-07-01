@@ -16,7 +16,7 @@ const AddCraft = () => {
 
 		const user = {name,Photo_Url,Email,Item_name,subcategory_Name,description,processing_time,customization,rating,price,stockStatus,}
 
-		fetch('http://localhost:5000/CraftIteam',{
+		fetch('https://asssignment-10-server-chi.vercel.app/CraftIteam',{
       method:'POST',
       headers:{
         'content-type':'application/json'

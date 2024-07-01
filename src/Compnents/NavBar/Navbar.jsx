@@ -5,7 +5,7 @@ import { AuthContext } from '../../Provider/Provider';
 import { toast } from 'react-toastify';
 import { Tooltip } from 'react-tooltip'
 const Navbar = () => {
-  const { logOut, user } = useContext(AuthContext);
+  const {logOut,user} = useContext(AuthContext)
 
   
     const [theme, setTheme] = useState('light');

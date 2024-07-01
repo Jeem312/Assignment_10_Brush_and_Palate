@@ -5,7 +5,7 @@ import Card from './Card';
 const CategoryCards = () => {
     const [infos,setinfos]=useState([]);
  useEffect(()=>{
-    fetch('http://localhost:5000/categories')
+    fetch('https://asssignment-10-server-chi.vercel.app/categories')
     .then(res=>res.json())
     .then(data =>{
       

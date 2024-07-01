@@ -47,7 +47,7 @@ const craftInfos = useLoaderData()
           <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3' style={{backgroundImage: `url(https://i.postimg.cc/054C3y4S/top-view-composition-with-art-concept.jpg)`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',borderRadius:'10px'}}>
         
           {
-            craftInfos.slice(11,19).map(craftInfo=><CraftCards key={craftInfo._id} craftInfo={craftInfo}></CraftCards>)
+            craftInfos?.slice(11,17).map(craftInfo=><CraftCards key={craftInfo._id} craftInfo={craftInfo}></CraftCards>)
           }
          
            

@@ -19,7 +19,7 @@ const CrafrCard = ({info}) => {
             if (result.isConfirmed) {
              
 
-              fetch(`http://localhost:5000/mycart/${_id}`,{
+              fetch(`https://asssignment-10-server-chi.vercel.app/mycart/${_id}`,{
                 method:'DELETE'
               })
               .then(res => res.json())

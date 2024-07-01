@@ -18,26 +18,25 @@ const {_id,name,Photo_Url,Item_name,Email,price,rating,Processing_time,stockStat
 
 		const updatedInfo = {name,Photo_Url ,Email,Item_name,subcategory_Name,description,processing_time,customization,rating,price,stockStatus,}
 
-        fetch(`http://localhost:5000/CraftIteam/${_id}`,{
-            method:'PATCH',
+        fetch(`https://asssignment-10-server-chi.vercel.app/CraftIteam/${_id}`,{
+            method:'PUT',
             headers:{
-              'content-type':'application/json'
-            },
-            body:JSON.stringify(updatedInfo)
+				'content-type':'application/json' },
+				body:JSON.stringify(updatedInfo)
            
             })
            .then(res => res.json())
            .then(data =>{
              console.log(data);
-        if(data.modifiedCount){
-              Swal.fire({
-                title: 'success',
-                text: 'Your Iteam Updated Successfully',
-                icon: 'success',
-                confirmButtonText: 'Cool'
-              })
-            }
-             reset();
+      
+			if(data.modifiedCount>0){
+				Swal.fire({
+					title: 'success',
+					text: 'Your Blog Updated Successfully',
+					icon: 'success',
+					confirmButtonText: 'Cool'
+				}) }
+           
               
             
             

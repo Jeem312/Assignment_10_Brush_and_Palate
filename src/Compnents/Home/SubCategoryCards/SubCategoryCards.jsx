@@ -8,7 +8,7 @@ const SubCategoryCards = () => {
     const {id} = useParams();
     const [infos,setInfos] = useState([])
    useEffect(()=>{
-    fetch(`http://localhost:5000/categories/${id}`)
+    fetch(`https://asssignment-10-server-chi.vercel.app/categories/${id}`)
     .then(res=>res.json())
     .then(data=>{
        

@@ -5,7 +5,7 @@ const Details = () => {
     const {id} = useParams();
     const [info,setInfo] = useState([]);
    useEffect(()=>{
-    fetch(`http://localhost:5000/craftDetails/${id}`)
+    fetch(`https://asssignment-10-server-chi.vercel.app/craftDetails/${id}`)
     .then(res=>res.json())
     .then(data=>{
         console.log(info);
@@ -26,7 +26,7 @@ const Details = () => {
     <div> <p className=" my-5">Details:{info?.description}</p></div> 
 
    
-<div className="border border-b-gray-400 mt-6"></div>
+<div className="border border-b-gray-200 mt-6"></div>
 <div className="grid grid-cols-2">
 <div className="font-bold my-3">
 <p>

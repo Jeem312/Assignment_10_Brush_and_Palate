@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
        path:'/' ,
        element:<Home></Home>,
-       loader:()=>fetch('http://localhost:5000/CraftIteam')
+       loader:()=>fetch('https://asssignment-10-server-chi.vercel.app/CraftIteam')
       
       
       },
@@ -60,12 +60,12 @@ const router = createBrowserRouter([
       {
        path:'/updateIteam/:id' ,
        element:<UpdateIteam></UpdateIteam>,
-       loader:({params})=>fetch(`http://localhost:5000/CraftIteam/${params.id}`)
+       loader:({params})=>fetch(`https://asssignment-10-server-chi.vercel.app/${params.id}`)
       },
       {
        path:'/allArtCraft' ,
        element:<AllArtCraft></AllArtCraft>,
-       loader:()=>fetch('http://localhost:5000/CraftIteam')
+       loader:()=>fetch('https://asssignment-10-server-chi.vercel.app/CraftIteam')
       
       },
   

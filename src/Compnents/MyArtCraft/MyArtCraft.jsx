@@ -9,7 +9,7 @@ const MyArtCraft = () => {
     
     const [infos,setInfos] =useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/mycart/${user?.email}`)
+        fetch(`https://asssignment-10-server-chi.vercel.app/mycart/${user?.email}`)
         .then(res=>res.json())
         .then((data)=>{console.log(data);
         setInfos(data);})
